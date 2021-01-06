@@ -13,6 +13,17 @@ const instance = createInstance({
   siteId,
 });
 
+const doc = document;
+const scriptElement = doc.createElement("script");
+const scripts = doc.getElementsByTagName("script")[0];
+
+scriptElement.type = "text/javascript";
+scriptElement.src = `${urlBase}/plugins/HeatmapSessionRecording/tracker.min.js`;
+
+if (scripts && scripts.parentNode) {
+  scripts.parentNode.insertBefore(scriptElement, scripts);
+}
+
 function App() {
   return (
     <MatomoProvider value={instance}>
