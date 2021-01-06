@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Header } from "./Components";
 
+import { ButtonPage } from "./Pages";
+
 function App() {
   return (
     <Router>
@@ -12,7 +14,7 @@ function App() {
           <div>homePAge</div>
         </Route>
         <Route path="/button" exact>
-          <div>button</div>
+          <ButtonPage />
         </Route>
         <Route path="/form" exact>
           <div>form</div>
