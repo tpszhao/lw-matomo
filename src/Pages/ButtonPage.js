@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useMatomo } from "@datapunt/matomo-tracker-react";
 
 const Container = styled.div`
   margin: 20px auto;
@@ -12,9 +13,19 @@ const Container = styled.div`
 `;
 
 const ButtonPage = () => {
+  const { trackPageView, trackEvent } = useMatomo();
+
+  useEffect(() => {
+    trackPageView();
+  }, []);
+
+  const handleClick = () => {
+    // Track click on button
+    trackEvent({ category: "button", action: "click" });
+  };
   return (
     <Container>
-      <button>click</button>
+      <button onClick={handleClick}>click</button>
     </Container>
   );
 };
